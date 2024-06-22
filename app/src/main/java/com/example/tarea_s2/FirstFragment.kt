@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tarea_s2.databinding.FragmentFirstBinding
@@ -29,7 +30,7 @@ class FirstFragment : Fragment() {
     private fun scrollUpToMyWantedPosition() =
         with(binding.MyScrollView) {
             postDelayed({
-                smoothScrollBy(0, 500)
+                smoothScrollBy(0, binding.llprimero.y.toInt())
             }, 200)
         }
 
@@ -38,17 +39,21 @@ class FirstFragment : Fragment() {
         setEventListener(requireActivity(),
             KeyboardVisibilityEventListener { isOpen ->
                 if (isOpen) {
-                    Toast.makeText(
-                        this@FirstFragment.context,
-                        "keyboard opened",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    binding.llprimero.setPadding(0,0,0,(binding.llprimero.height/4))
+//                    Toast.makeText(
+//                        this@FirstFragment.context,
+//                        "keyboard opened",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                     scrollUpToMyWantedPosition()
-                } else Toast.makeText(
-                    this@FirstFragment.context,
-                    "keyboard hidden",
-                    Toast.LENGTH_SHORT
-                ).show()
+                } else {
+                    binding.llprimero.setPadding(0,0,0,0)
+//                    Toast.makeText(
+//                        this@FirstFragment.context,
+//                        "keyboard hidden",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+                }
             })
     }
     override fun onCreateView(
