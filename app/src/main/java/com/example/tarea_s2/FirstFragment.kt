@@ -93,7 +93,7 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             val bundle = bundleOf(
                 "nombre" to binding.nombre.text.toString(),
-                "fecha" to "${binding.fecha.dayOfMonth}/${binding.fecha.month}/${binding.fecha.year}",
+                "fecha" to "${binding.fecha.dayOfMonth}/${(binding.fecha.month+1)}/${binding.fecha.year}",
                 "telefono" to binding.telefono.text.toString(),
                 "email" to binding.email.text.toString(),
                 "contacto" to binding.contacto.text.toString(),
