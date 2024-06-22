@@ -35,14 +35,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/nombre">
+                        android:hint="@string/nombre"
+                        android:id="@+id/nombre">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <DatePicker
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fecha">
 
                 </DatePicker>
 
@@ -53,7 +55,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/telefono">
+                        android:hint="@string/telefono"
+                        android:id="@+id/telefono">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +68,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/email">
+                        android:hint="@string/email"
+                        android:id="@+id/email">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -78,7 +82,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="textMultiLine"
-                        android:hint="@string/descripcion_de_contacto">
+                        android:hint="@string/descripcion_de_contacto"
+                        android:id="@+id/contacto">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>

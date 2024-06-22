@@ -1,10 +1,13 @@
 package com.example.tarea_s2
 
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.tarea_s2.databinding.FragmentSecondBinding
 
@@ -32,9 +35,23 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textviewSecond.text = arguments?.getString("test")
+       val html = "${arguments?.getString("nombre")}<br>" +
+               "Fecha de nacimiento: ${arguments?.getString("fecha")}<br>" +
+               "Tel: ${arguments?.getString("telefono")}<br>" +
+               "Email: ${arguments?.getString("email")}<br>" +
+               "Descripcion: ${arguments?.getString("contacto")}"
+
+        binding.textviewSecond.text =
+            Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            val bundle = bundleOf(
+                "nombre" to arguments?.getString("nombre"),
+                "fecha" to arguments?.getString("fecha"),
+                "telefono" to arguments?.getString("telefono"),
+                "email" to arguments?.getString("email"),
+                "contacto" to arguments?.getString("contacto"),
+            )
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment, bundle)
         }
     }
 
